@@ -1,3 +1,4 @@
+
 /**
  * Represents Ex15 class Maman15 question1
  *
@@ -11,12 +12,12 @@ public class Point
     private double _x;
     private double _y;
 
-    // declarations of constants and variables
-    private final static double ZERO = 0.0; // used to validate value is postive. Acording to HenU, in this case postive n => 0 Point.x or Point.y are not zero mainly p
-    private final static double TWO = 2.0;
-
     /**
      * Point Constructor - Constructor for objects of class Point
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     *
      */
     public Point (double x, double y) // Point Constructor - Regular constructor
     {
@@ -25,7 +26,10 @@ public class Point
     }
 
     /**
-     * Point Constructor - Copy constructor, construct a point using another point.
+     * Point Constructor - Copy constructor, construct a point using another point
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param other - The point from which to construct the new object
      */
@@ -39,6 +43,9 @@ public class Point
     /**
      * Method getX - This method returns the x coordinate of the point
      *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     *
      * @return - returns the coordinate x of the point
      */
     public double getX()
@@ -48,6 +55,9 @@ public class Point
 
     /**
      * Method getY - This method returns the y coordinate of the point
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @return - returns the coordinate y of the point
      */
@@ -58,6 +68,10 @@ public class Point
 
     /**
      * Method setX - sets the point coordinate of _x to be the new coordinate
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     * 
      * @param x - The new x coordinate
      */
     public void setX(double x)
@@ -67,6 +81,10 @@ public class Point
 
     /**
      * Method setY - sets the point coordinate of _y to be the new coordinate
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     * 
      * @param y - The new y coordinate
      */
     public void setY(double y)
@@ -77,18 +95,23 @@ public class Point
     /**
      * Method toString - Returns a string representation of Point ("textually represents") in the format (x,y)
      *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     *
      * @return A String representation of the Point object
      */
     public String toString()
     {
-        return "("+getX()+","+getY()+")"; // "".format("(%f,%f)", _x, _y);
+        return "(" + getX() + "," + getY() + ")"; // "".format("(%f,%f)", _x, _y);
     }
 
     /**
      * Method equals - Check if the given point is equal to this point
      *          returns true if the other Point has
-     *          similar properties as this (instanse) Point otherwise
-     *          returns false
+     *          similar properties as this (instanse) Point otherwise returns false
+     *          
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static.          
      *
      * @param other - The point to check equality with
      *
@@ -103,6 +126,9 @@ public class Point
      * Method isAbove - Check if the this point is above to given point (formal parameter other)
      *          returns true if this point is higher than the other Point meaning
      *          y coordinate propertie higher has higher value otherwise returns false
+     * 
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param other - The point to check equality with
      *
@@ -113,42 +139,55 @@ public class Point
         return (_y > other._y);
     }
 
-    /** *API need to be adujsted*
-     * Method isUnder - Check if the this point is above to given point (formal parameter other)
-     *          returns true if this point is higher than the other Point meaning
-     *          y coordinate  propertie higher has higher value otherwise returns false
+    /** 
+     * Method isUnder - Check if the this point is under to given point (formal parameter other)
+     *          returns true if this point is lower than the other Point meaning
+     *          y coordinate  propertie has lower value otherwise returns false
+     * Due to mman instruction and the given limitation "isAbove method is only permitted", The other instance is calling isAbove method and passing (this instance) as parameter.
+     * If the other Point is above then this instance (point) must be under and vice versa
+     *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param other - The point to check equality with
      *
-     * @return returns true if this point is higher than the other Point otherwise returns false
+     * @return returns true if this point is lower than the other Point otherwise returns false
      */
     public boolean isUnder(Point other)
     {
         return other.isAbove(this);
     }
 
-    /** *API need to be adujsted*
-     * Method isLeft - Check if the this point is above to given point (formal parameter other)
-     *          returns true if this point is higher than the other Point meaning
-     *          y coordinate  propertie higher has higher value otherwise returns false
+    /**
+     * Method isLeft - Check if the this point is left to given point (formal parameter other)
+     *          returns true if this point has lower _x value than the other Point meaning
+     *          x coordinate propertie has lower value otherwise returns false
+     *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param other - The point to check equality with
      *
-     * @return returns true if this point is higher than the other Point otherwise returns false
+     * @return returns true if the position of this point is before (is to left) relative the other Point otherwise returns false
      */
     public boolean isLeft(Point other)
     {
         return _x < other._x;
     }
 
-    /** *API need to be adujsted*
-     * Method isRight - Check if the this point is to right to given point (formal parameter other)
-     *          returns true if this point is higher than the other Point meaning
-     *          y coordinate  propertie higher has higher value otherwise returns false
+    /** 
+     * Method isRight - Check if the this point is to the right to given point (formal parameter other)
+     *          returns true if this point is "after" than the other Point meaning
+     *          x coordinate  propertie has higher value otherwise returns false
+     * Due to mman instruction and the given limitation "isLeft method is only permitted", The other instance is calling isLeft method and passing (this instance) as parameter.
+     * If the other Point is to Left relative to this instance (point) then this must be to Right and vice versa
+     *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param other - The point to check equality with
      *
-     * @return returns true if this point is higher than the other Point otherwise returns false
+     * @return returns true if the position of this point is after (is to right) relative the other Point otherwise returns false
      */
     public boolean isRight(Point other)
     {
@@ -158,17 +197,23 @@ public class Point
     /**
      * Method distance - Check the distance between this point and a given point
      *
-     * @param other - The point to check the distance from
-     * @return The distance
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
+     *
+     * @param other - The point to check the distance to
+     * 
+     * @return The actual distance value ( (y2 - y1)^2 + (x2 - x1)^2 )^1/2 ( ^1/2 = Math.sqrt = ^0.5 = Math.pow(x,0.5) )
      */
     public double distance(Point other)
     {
-        return Math.sqrt( (Math.pow( (_y - other._y), TWO)) + (Math.pow( (_x - other._x), TWO)) ); //
-        //        return Math.sqrt( (Math.pow( (other._y  - _y), TWO)) + (Math.pow( (other._x - _x), TWO)) ) ; //
+        return Math.sqrt( (Math.pow( (_y - other._y), 2.0)) + (Math.pow( (_x - other._x), 2.0)) ); // ( (y2 - y1)^2 + (x2 - x1)^2 )^0.5
     }
 
     /**
-     * Method move - Moves a point. If either coordinate becomes negative the point remains unchanged
+     * Method move - Moves a point according to dx and dy formal parameters by invoke setters for _x and _y
+     *
+     * Time Complexity is O(1). Zero iterations are done
+     * Memory Complexity is O(1). The memory complexity is static is not dependent with n or other non static. 
      *
      * @param dx - The difference to add to x
      * @param dy - The difference to add to y
